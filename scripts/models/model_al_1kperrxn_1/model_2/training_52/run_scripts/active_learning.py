@@ -5,16 +5,14 @@
 
 import os
 import glob
-import shutil
 import time
 import numpy as np
-import pandas as pd
 import sys
 import multiprocessing as mp
 from functools import partial
 import ase.io
-from combust.utils import get_spin_for_rxn,run_command,CommandExecuteError, write_and_submit_to_slurm, is_job_in_queue
-from md.active_learning.active_learning_tasks import retrain, evaluate_npzs
+from combust.utils import get_spin_for_rxn,run_command,CommandExecuteError, write_and_submit_to_slurm
+from md.active_learning.active_learning_tasks import retrain, is_job_in_queue
 from md.active_learning.active_learner import ActiveLearner,CommitteeRegressor
 from md.active_learning.data_sampler import DataSampler
 
@@ -97,18 +95,12 @@ def qchem_and_parse_from_traj(traj_file,rxn,npz_name,qchem_dir):
     if os.path.isfile(npz_name):
         print(f"{npz_name} already exist. skip qchem")
         return True
-    if not os.path.isdir(qchem_dir) or len(os.listdir(qchem_dir)) == 0:
+    if not os.path.isdir(qchem_dir):
         name = npz_name.split('/')[-1][:-4]
         ds = DataSampler(calc=None)
         traj = ase.io.read(traj_file, index=":", format="traj")
         print(f"Traj {traj_file} has {len(traj)} data points")
         ds.generate_qchem_input_fragmo_and_sad(name,qchem_dir,max_number=1000,geoms=traj,report_stdev=False,spin=get_spin_for_rxn(rxn))
-
-    if len(os.listdir(qchem_dir)) == 0:
-        shutil.rmtree(qchem_dir)
-        print(f"No qchem input for {qchem_dir}")
-        return False
-
     cmd = f'python {task_file} qchem {qchem_dir} {npz_name} -r {rxn}'
     try:
         code, out, err = run_command(cmd, timeout=100000)
@@ -178,66 +170,23 @@ def training_loop(result_dir, initialize = True,metad_time_fs = 2000, stepsize =
     else:
         raise NotImplementedError(f"Found unknown status {status} for {result_dir}")
 
-### other tasks ###
-def evaluate_aimd_nm(result_dir,fname,irc=False,cpu = False):
-    assert fname.endswith("xlsx")
-    committee = CommitteeRegressor.from_dir(result_dir, force_cpu=True, iteration=-1)
-    n_iter = committee.get_latest_iteration()
-    aimd = glob.glob(f"{committee.settings['data']['root']}/*_aimd.npz")
-    nm = glob.glob(f"{committee.settings['data']['root']}/*_nm.npz")
-    npzs = np.concatenate([aimd,nm])
-    if irc:
-        irc = glob.glob(f"{committee.settings['data']['root']}/*_irc.npz")
-        npzs = np.concatenate([npzs,irc])
-
-    dfs = []
-
-    for i in range(n_iter):
-        res_dict = evaluate_npzs(result_dir,npzs=npzs,iteration=i,cpu = cpu)
-        df = pd.DataFrame(columns=['mae_E', 'mae_F', 'n_data'])
-        for k,v in res_dict.items():
-            df.loc[k] = v
-        dfs.append(df)
 
 
-    # Creating Excel Writer Object from Pandas
-    with pd.ExcelWriter(fname, engine='xlsxwriter') as writer:
-        workbook = writer.book
-        worksheet = workbook.add_worksheet('Validation')
-        writer.sheets['Validation'] = worksheet
-        start = 0
-        for i, df in enumerate(dfs):
-            df.to_excel(writer, sheet_name='Validation', startrow=start, startcol=0)
-            start += df.shape[0] + 2
-
-def run_qchem_traj(traj):
-    root = "geom/uncertain_traj"
-    npz_path = "geom/new_data/uncertain_traj"
-    rxn = traj.split('/')[-1].split('TS')[1][:2]
-    name = traj.split('/')[-1][:-5]
-    folder = f"{root}/{name}"
-    print(f"Call qchem and parse for {traj}")
-    qchem_and_parse_from_traj(traj, rxn, f"{npz_path}/{name}.npz", folder)
-
-def run_uncertain_traj_prl(uncertain_trajs):
-    with mp.Pool() as pool:  # use all available cores, otherwise specify the number you want as an argument
-        pool.map(run_qchem_traj, uncertain_trajs)
 
 if __name__ =='__main__':
-    result_dir = sys.argv[1] #'model_al_1kperrxn_bwsl_1'
-    #committee = CommitteeRegressor.from_dir(result_dir, force_cpu=True, iteration=-1)
-    #committee.update_setting('al', 'metad_rxns',  [1,9,10,13,16,17,18])
+    #result_dir = sys.argv[1] #'model_al_1kperrxn_bwsl_1'
     #training_loop(result_dir,initialize=False,metad_time_fs = int(sys.argv[2]),stepsize=0.5)
 
     ### for adding uncertain traj to training ###
-    uncertain_trajs = glob.glob("geom/uncertain_traj/*.traj")
-    run_uncertain_traj_prl(uncertain_trajs)
-    # committee = CommitteeRegressor.from_dir(result_dir, force_cpu=True, iteration=-1)
-    # committee.update_setting('al', 'added', glob.glob("geom/new_data/combined/*.npz"))
-    # added_npz = glob.glob("geom/new_data/uncertain_traj/*.npz")
-    # retraining(result_dir, added_npz)
-
-    #evaluate_aimd_nm(result_dir,"eval_ori.xlsx",irc=True)
-
-    # evaluate_aimd_nm(result_dir,"eval_ori.xlsx",irc=True)
+    uncertain_trajs = glob.glob("geom/uncertain_traj/pr_*.traj")
+    root = "geom/uncertain_traj"
+    npz_path = "geom/new_data/uncertain_traj"
+    def run_qchem_traj(traj):
+        rxn = traj.split('/')[-1].split('TS')[1][:2]
+        name = traj.split('/')[-1][:-5]
+        folder = f"{root}/{name}"
+        qchem_and_parse_from_traj(traj, rxn, f"{npz_path}/{name}.npz", folder)
+    
+    with mp.Pool() as pool:  # use all available cores, otherwise specify the number you want as an argument
+        pool.map(run_qchem_traj, uncertain_trajs)
 

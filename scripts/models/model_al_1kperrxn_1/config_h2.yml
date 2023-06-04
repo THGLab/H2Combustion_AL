@@ -41,7 +41,7 @@ model:
   n_features: 128
   n_interactions: 3
   cutoff_network: poly  # poly, cosine
-  normalize_atomic: True
+  normalize_atomic: False
   shared_interactions: False
   normalize_filter: False
   return_latent: True
