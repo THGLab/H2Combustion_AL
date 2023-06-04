@@ -1,0 +1,69 @@
+general:
+  me: config_h2.yml
+  device: cpu #cuda:0
+  driver: run_h2.py
+  output: [local/all_lnormat/5kperRxn , 1] # root, iter
+
+data:
+  root: /global/scratch/mojtabah/data/h2reaction/all #AIMD/04/combined
+  reaction: [1,2,3,4,8,9,10,11,13,14,15,16,17,18,19]
+  normal_mode: True
+  size_nmode_max: 4000     # will be applied to both single and multiple reaction job
+  trsize_perrxn_max: 5000     # -1 for all remaining
+  train_size: -1   # -1 for all remaining
+  test_size: 500
+  val_size: 500
+  cutoff: 5.0
+  random_states: 90
+  cgem: False
+
+model:
+  pre_trained: False #/home/moji/Documents/repos_dev/3_ff/H2Combustion/scripts/models/md17/local/rffm/v10/training_1/models/best_model_state.tar
+  activation: swish #ssp
+  requires_dr: True
+  w_energy: 1.0
+  w_force: 20.0
+  wf_decay: 0.0     # if 0.01: wf=1 at epoch=460
+  w_f_mag: 0.0
+  w_f_dir: 0.0
+  resolution: 20
+  n_features: 128
+  n_interactions: 3
+  cutoff_network: poly  # poly, cosine
+  normalize_atomic: True
+  shared_interactions: False
+  normalize_filter: False
+  return_latent: False
+  layer_norm: True
+
+training:
+  epochs: 5000
+  tr_batch_size: 50  #32
+  val_batch_size: 50 #32
+  tr_rotations: 0
+  val_rotations: 0
+  tr_frz_rot: False
+  val_frz_rot: False
+  tr_keep_original: True         # ##
+  val_keep_original: True
+  shuffle: True
+  drop_last: True
+  lr: 1.0e-3 #0.0005
+  lr_scheduler: [plateau, 15, 50, 0.7, 1.0e-6]
+#  lr_scheduler: [decay, 0.05]
+  weight_decay: 0 #3.0e-5
+  dropout: 0.0
+
+hooks:
+  vismolvector3d: False
+
+checkpoint:
+  log: 1
+  val: 1
+  test: 1
+  model: 100
+  verbose: False
+
+
+
+

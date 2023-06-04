@@ -1,0 +1,205 @@
+al:
+  added: [geom/new_data/max300/metad_TS17_34_10000fs.npz, geom/new_data/max300/metad_TS16_29_5000fs.npz,
+    geom/new_data/max300/metad_TS10_16_2000fs.npz, geom/new_data/max300/metad_TS16_46_10000fs.npz,
+    geom/new_data/max300/metad_TS09_48_10000fs.npz, geom/new_data/max300/metad_TS17_15_2000fs.npz,
+    geom/new_data/max300/metad_TS17_29_5000fs.npz, geom/new_data/max300/metad_TS13_7_2000fs.npz,
+    geom/new_data/max300/metad_TS16_10_2000fs.npz, geom/new_data/max300/metad_TS13_42_10000fs.npz,
+    geom/new_data/max300/metad_TS17_2_2000fs.npz, geom/new_data/max300/metad_TS17_14_2000fs.npz,
+    geom/new_data/max300/metad_TS10_37_10000fs.npz, geom/new_data/max300/metad_TS10_20_2000fs.npz,
+    geom/new_data/max300/metad_TS16_7_2000fs.npz, geom/new_data/max300/metad_TS10_34_10000fs.npz,
+    geom/new_data/max300/metad_TS17_7_2000fs.npz, geom/new_data/max300/metad_TS13_13_2000fs.npz,
+    geom/new_data/max300/metad_TS16_35_10000fs.npz, geom/new_data/max300/metad_TS18_42_10000fs.npz,
+    geom/new_data/max300/metad_TS13_45_10000fs.npz, geom/new_data/max300/metad_TS17_35_10000fs.npz,
+    geom/new_data/max300/metad_TS18_1_2000fs.npz, geom/new_data/max300/metad_TS13_33_5000fs.npz,
+    geom/new_data/max300/metad_TS13_2_2000fs.npz, geom/new_data/max300/metad_TS17_19_2000fs.npz,
+    geom/new_data/max300/metad_TS17_49_20000fs.npz, geom/new_data/max300/metad_TS16_43_10000fs.npz,
+    geom/new_data/max300/metad_TS16_16_2000fs.npz, geom/new_data/max300/metad_TS18_37_10000fs.npz,
+    geom/new_data/max300/metad_TS16_41_10000fs.npz, geom/new_data/max300/metad_TS09_42_10000fs.npz,
+    geom/new_data/max300/metad_TS13_36_10000fs.npz, geom/new_data/max300/metad_TS17_6_2000fs.npz,
+    geom/new_data/max300/metad_TS13_9_2000fs.npz, geom/new_data/max300/metad_TS09_22_5000fs.npz,
+    geom/new_data/max300/metad_TS13_10_2000fs.npz, geom/new_data/max300/metad_TS09_6_2000fs.npz,
+    geom/new_data/max300/metad_TS18_45_10000fs.npz, geom/new_data/max300/metad_TS16_15_2000fs.npz,
+    geom/new_data/max300/metad_TS17_37_10000fs.npz, geom/new_data/max300/metad_TS10_8_2000fs.npz,
+    geom/new_data/max300/metad_TS09_10_2000fs.npz, geom/new_data/max300/metad_TS16_17_2000fs.npz,
+    geom/new_data/max300/metad_TS10_41_10000fs.npz, geom/new_data/max300/metad_TS09_26_5000fs.npz,
+    geom/new_data/max300/metad_TS09_38_10000fs.npz, geom/new_data/max300/metad_TS13_3_2000fs.npz,
+    geom/new_data/max300/metad_TS10_44_10000fs.npz, geom/new_data/max300/metad_TS18_31_5000fs.npz,
+    geom/new_data/max300/metad_TS09_30_5000fs.npz, geom/new_data/max300/metad_TS10_21_5000fs.npz,
+    geom/new_data/max300/metad_TS16_37_10000fs.npz, geom/new_data/max300/metad_TS13_41_10000fs.npz,
+    geom/new_data/max300/metad_TS09_44_10000fs.npz, geom/new_data/max300/metad_TS16_25_5000fs.npz,
+    geom/new_data/max300/metad_TS10_3_2000fs.npz, geom/new_data/max300/metad_TS18_33_5000fs.npz,
+    geom/new_data/max300/metad_TS18_15_2000fs.npz, geom/new_data/max300/metad_TS13_24_5000fs.npz,
+    geom/new_data/max300/metad_TS10_39_10000fs.npz, geom/new_data/max300/metad_TS09_39_10000fs.npz,
+    geom/new_data/max300/metad_TS09_29_5000fs.npz, geom/new_data/max300/metad_TS18_47_10000fs.npz,
+    geom/new_data/max300/metad_TS16_42_10000fs.npz, geom/new_data/max300/metad_TS17_23_5000fs.npz,
+    geom/new_data/max300/metad_TS09_37_10000fs.npz, geom/new_data/max300/metad_TS10_26_5000fs.npz,
+    geom/new_data/max300/metad_TS10_10_2000fs.npz, geom/new_data/max300/metad_TS10_18_2000fs.npz,
+    geom/new_data/max300/metad_TS17_22_5000fs.npz, geom/new_data/max300/metad_TS17_16_2000fs.npz,
+    geom/new_data/max300/metad_TS09_5_2000fs.npz, geom/new_data/max300/metad_TS09_32_5000fs.npz,
+    geom/new_data/max300/metad_TS09_20_2000fs.npz, geom/new_data/max300/metad_TS17_10_2000fs.npz,
+    geom/new_data/max300/metad_TS13_16_2000fs.npz, geom/new_data/max300/metad_TS18_12_2000fs.npz,
+    geom/new_data/max300/metad_TS16_3_2000fs.npz, geom/new_data/max300/metad_TS09_43_10000fs.npz,
+    geom/new_data/max300/metad_TS09_50_20000fs.npz, geom/new_data/max300/metad_TS13_26_5000fs.npz,
+    geom/new_data/max300/metad_TS13_6_2000fs.npz, geom/new_data/max300/metad_TS10_42_10000fs.npz,
+    geom/new_data/max300/metad_TS10_17_2000fs.npz, geom/new_data/max300/metad_TS16_28_5000fs.npz,
+    geom/new_data/max300/metad_TS16_9_2000fs.npz, geom/new_data/max300/metad_TS16_32_5000fs.npz,
+    geom/new_data/max300/metad_TS18_7_2000fs.npz, geom/new_data/max300/metad_TS10_35_10000fs.npz,
+    geom/new_data/max300/metad_TS09_3_2000fs.npz, geom/new_data/max300/metad_TS16_48_10000fs.npz,
+    geom/new_data/max300/metad_TS10_32_5000fs.npz, geom/new_data/max300/metad_TS18_43_10000fs.npz,
+    geom/new_data/max300/metad_TS10_36_10000fs.npz, geom/new_data/max300/metad_TS10_27_5000fs.npz,
+    geom/new_data/max300/metad_TS09_8_2000fs.npz, geom/new_data/max300/metad_TS16_36_10000fs.npz,
+    geom/new_data/max300/metad_TS16_44_10000fs.npz, geom/new_data/max300/metad_TS16_13_2000fs.npz,
+    geom/new_data/max300/metad_TS16_23_5000fs.npz, geom/new_data/max300/metad_TS13_40_10000fs.npz,
+    geom/new_data/max300/metad_TS13_35_10000fs.npz, geom/new_data/max300/metad_TS10_28_5000fs.npz,
+    geom/new_data/max300/metad_TS17_31_5000fs.npz, geom/new_data/max300/metad_TS10_31_5000fs.npz,
+    geom/new_data/max300/metad_TS16_27_5000fs.npz, geom/new_data/max300/metad_TS17_32_5000fs.npz,
+    geom/new_data/max300/metad_TS17_43_10000fs.npz, geom/new_data/max300/metad_TS09_33_5000fs.npz,
+    geom/new_data/max300/metad_TS18_35_10000fs.npz, geom/new_data/max300/metad_TS13_47_10000fs.npz,
+    geom/new_data/max300/metad_TS18_17_2000fs.npz, geom/new_data/max300/metad_TS13_25_5000fs.npz,
+    geom/new_data/max300/metad_TS16_26_5000fs.npz, geom/new_data/max300/metad_TS17_33_5000fs.npz,
+    geom/new_data/max300/metad_TS17_48_10000fs.npz, geom/new_data/max300/metad_TS16_51_20000fs.npz,
+    geom/new_data/max300/metad_TS18_10_2000fs.npz, geom/new_data/max300/metad_TS10_14_2000fs.npz,
+    geom/new_data/max300/metad_TS09_14_2000fs.npz, geom/new_data/max300/metad_TS09_47_10000fs.npz,
+    geom/new_data/max300/metad_TS10_19_2000fs.npz, geom/new_data/max300/metad_TS17_21_5000fs.npz,
+    geom/new_data/max300/metad_TS13_50_20000fs.npz, geom/new_data/max300/metad_TS16_39_10000fs.npz,
+    geom/new_data/max300/metad_TS18_9_2000fs.npz, geom/new_data/max300/metad_TS13_8_2000fs.npz,
+    geom/new_data/max300/metad_TS17_36_10000fs.npz, geom/new_data/max300/metad_TS10_7_2000fs.npz,
+    geom/new_data/max300/metad_TS16_30_5000fs.npz, geom/new_data/max300/metad_TS17_40_10000fs.npz,
+    geom/new_data/max300/metad_TS09_27_5000fs.npz, geom/new_data/max300/metad_TS17_28_5000fs.npz,
+    geom/new_data/max300/metad_TS17_47_10000fs.npz, geom/new_data/max300/metad_TS10_29_5000fs.npz,
+    geom/new_data/max300/metad_TS18_16_2000fs.npz, geom/new_data/max300/metad_TS13_28_5000fs.npz,
+    geom/new_data/max300/metad_TS18_2_2000fs.npz, geom/new_data/max300/metad_TS13_27_5000fs.npz,
+    geom/new_data/max300/metad_TS17_18_2000fs.npz, geom/new_data/max300/metad_TS18_30_5000fs.npz,
+    geom/new_data/max300/metad_TS10_50_20000fs.npz, geom/new_data/max300/metad_TS17_30_5000fs.npz,
+    geom/new_data/max300/metad_TS17_12_2000fs.npz, geom/new_data/max300/metad_TS17_39_10000fs.npz,
+    geom/new_data/max300/metad_TS09_12_2000fs.npz, geom/new_data/max300/metad_TS09_41_10000fs.npz,
+    geom/new_data/max300/metad_TS16_6_2000fs.npz, geom/new_data/max300/metad_TS09_51_20000fs.npz,
+    geom/new_data/max300/metad_TS18_23_5000fs.npz, geom/new_data/max300/metad_TS18_3_2000fs.npz,
+    geom/new_data/max300/metad_TS09_13_2000fs.npz, geom/new_data/max300/metad_TS10_45_10000fs.npz,
+    geom/new_data/max300/metad_TS13_48_10000fs.npz, geom/new_data/max300/metad_TS13_38_10000fs.npz,
+    geom/new_data/max300/metad_TS10_6_2000fs.npz, geom/new_data/max300/metad_TS17_46_10000fs.npz,
+    geom/new_data/max300/metad_TS16_8_2000fs.npz, geom/new_data/max300/metad_TS09_4_2000fs.npz,
+    geom/new_data/max300/metad_TS13_1_2000fs.npz, geom/new_data/max300/metad_TS13_15_2000fs.npz,
+    geom/new_data/max300/metad_TS16_19_2000fs.npz, geom/new_data/max300/metad_TS18_19_2000fs.npz,
+    geom/new_data/max300/metad_TS13_5_2000fs.npz, geom/new_data/max300/metad_TS13_4_2000fs.npz,
+    geom/new_data/max300/metad_TS10_43_10000fs.npz, geom/new_data/max300/metad_TS10_33_5000fs.npz,
+    geom/new_data/max300/metad_TS09_40_10000fs.npz, geom/new_data/max300/metad_TS10_49_20000fs.npz,
+    geom/new_data/max300/metad_TS10_48_10000fs.npz, geom/new_data/max300/metad_TS18_24_5000fs.npz,
+    geom/new_data/max300/metad_TS17_45_10000fs.npz, geom/new_data/max300/metad_TS09_35_10000fs.npz,
+    geom/new_data/max300/metad_TS09_49_20000fs.npz, geom/new_data/max300/metad_TS18_6_2000fs.npz,
+    geom/new_data/max300/metad_TS10_38_10000fs.npz, geom/new_data/max300/metad_TS18_46_10000fs.npz,
+    geom/new_data/max300/metad_TS16_49_20000fs.npz, geom/new_data/max300/metad_TS18_38_10000fs.npz,
+    geom/new_data/max300/metad_TS16_18_2000fs.npz, geom/new_data/max300/metad_TS10_23_5000fs.npz,
+    geom/new_data/max300/metad_TS18_48_10000fs.npz, geom/new_data/max300/metad_TS13_14_2000fs.npz,
+    geom/new_data/max300/metad_TS09_25_5000fs.npz, geom/new_data/max300/metad_TS09_2_2000fs.npz,
+    geom/new_data/max300/metad_TS13_22_5000fs.npz, geom/new_data/max300/metad_TS18_20_2000fs.npz,
+    geom/new_data/max300/metad_TS10_51_20000fs.npz, geom/new_data/max300/metad_TS18_22_5000fs.npz,
+    geom/new_data/max300/metad_TS16_33_5000fs.npz, geom/new_data/max300/metad_TS09_15_2000fs.npz,
+    geom/new_data/max300/metad_TS13_44_10000fs.npz, geom/new_data/max300/metad_TS16_22_5000fs.npz,
+    geom/new_data/max300/metad_TS17_50_20000fs.npz, geom/new_data/max300/metad_TS16_47_10000fs.npz,
+    geom/new_data/max300/metad_TS17_3_2000fs.npz, geom/new_data/max300/metad_TS16_2_2000fs.npz,
+    geom/new_data/max300/metad_TS18_11_2000fs.npz, geom/new_data/max300/metad_TS16_1_2000fs.npz,
+    geom/new_data/max300/metad_TS16_34_10000fs.npz, geom/new_data/max300/metad_TS09_24_5000fs.npz,
+    geom/new_data/max300/metad_TS18_14_2000fs.npz, geom/new_data/max300/metad_TS09_23_5000fs.npz,
+    geom/new_data/max300/metad_TS09_36_10000fs.npz, geom/new_data/max300/metad_TS10_1_2000fs.npz,
+    geom/new_data/max300/metad_TS09_19_2000fs.npz, geom/new_data/max300/metad_TS16_40_10000fs.npz,
+    geom/new_data/max300/metad_TS09_7_2000fs.npz, geom/new_data/max300/metad_TS18_49_20000fs.npz,
+    geom/new_data/max300/metad_TS10_25_5000fs.npz, geom/new_data/max300/metad_TS16_38_10000fs.npz,
+    geom/new_data/max300/metad_TS17_51_20000fs.npz, geom/new_data/max300/metad_TS09_31_5000fs.npz,
+    geom/new_data/max300/metad_TS18_50_20000fs.npz, geom/new_data/max300/metad_TS13_39_10000fs.npz,
+    geom/new_data/max300/metad_TS18_34_10000fs.npz, geom/new_data/max300/metad_TS17_42_10000fs.npz,
+    geom/new_data/max300/metad_TS16_5_2000fs.npz, geom/new_data/max300/metad_TS17_41_10000fs.npz,
+    geom/new_data/max300/metad_TS16_11_2000fs.npz, geom/new_data/max300/metad_TS10_4_2000fs.npz,
+    geom/new_data/max300/metad_TS17_38_10000fs.npz, geom/new_data/max300/metad_TS17_20_2000fs.npz,
+    geom/new_data/max300/metad_TS17_44_10000fs.npz, geom/new_data/max300/metad_TS18_44_10000fs.npz,
+    geom/new_data/max300/metad_TS18_27_5000fs.npz, geom/new_data/max300/metad_TS18_41_10000fs.npz,
+    geom/new_data/max300/metad_TS09_18_2000fs.npz, geom/new_data/max300/metad_TS18_29_5000fs.npz,
+    geom/new_data/max300/metad_TS18_28_5000fs.npz, geom/new_data/max300/metad_TS18_36_10000fs.npz,
+    geom/new_data/max300/metad_TS16_45_10000fs.npz, geom/new_data/max300/metad_TS09_16_2000fs.npz,
+    geom/new_data/max300/metad_TS13_29_5000fs.npz, geom/new_data/max300/metad_TS09_34_10000fs.npz,
+    geom/new_data/max300/metad_TS18_26_5000fs.npz, geom/new_data/max300/metad_TS17_9_2000fs.npz,
+    geom/new_data/max300/metad_TS09_1_2000fs.npz, geom/new_data/max300/metad_TS09_11_2000fs.npz,
+    geom/new_data/max300/metad_TS10_47_10000fs.npz, geom/new_data/max300/metad_TS17_5_2000fs.npz,
+    geom/new_data/max300/metad_TS13_21_5000fs.npz, geom/new_data/max300/metad_TS17_26_5000fs.npz,
+    geom/new_data/max300/metad_TS13_17_2000fs.npz, geom/new_data/max300/metad_TS17_4_2000fs.npz,
+    geom/new_data/max300/metad_TS10_2_2000fs.npz, geom/new_data/max300/metad_TS18_4_2000fs.npz,
+    geom/new_data/max300/metad_TS16_24_5000fs.npz, geom/new_data/max300/metad_TS13_20_2000fs.npz,
+    geom/new_data/max300/metad_TS09_46_10000fs.npz, geom/new_data/max300/metad_TS16_31_5000fs.npz,
+    geom/new_data/max300/metad_TS18_13_2000fs.npz, geom/new_data/max300/metad_TS18_32_5000fs.npz,
+    geom/new_data/max300/metad_TS13_23_5000fs.npz, geom/new_data/max300/metad_TS16_50_20000fs.npz,
+    geom/new_data/max300/metad_TS10_46_10000fs.npz, geom/new_data/max300/metad_TS18_25_5000fs.npz,
+    geom/new_data/max300/metad_TS09_21_5000fs.npz, geom/new_data/max300/metad_TS10_11_2000fs.npz,
+    geom/new_data/max300/metad_TS16_4_2000fs.npz, geom/new_data/max300/metad_TS18_39_10000fs.npz,
+    geom/new_data/max300/metad_TS17_17_2000fs.npz, geom/new_data/max300/metad_TS17_8_2000fs.npz,
+    geom/new_data/max300/metad_TS18_5_2000fs.npz, geom/new_data/max300/metad_TS18_40_10000fs.npz,
+    geom/new_data/max300/metad_TS16_21_5000fs.npz, geom/new_data/max300/metad_TS18_18_2000fs.npz,
+    geom/new_data/max300/metad_TS10_12_2000fs.npz, geom/new_data/max300/metad_TS13_37_10000fs.npz,
+    geom/new_data/max300/metad_TS09_17_2000fs.npz, geom/new_data/max300/metad_TS17_27_5000fs.npz,
+    geom/new_data/max300/metad_TS18_8_2000fs.npz, geom/new_data/max300/metad_TS17_25_5000fs.npz,
+    geom/new_data/max300/metad_TS13_31_5000fs.npz, geom/new_data/max300/metad_TS13_19_2000fs.npz,
+    geom/new_data/max300/metad_TS13_51_20000fs.npz, geom/new_data/max300/metad_TS10_30_5000fs.npz,
+    geom/new_data/max300/metad_TS13_49_20000fs.npz, geom/new_data/max300/metad_TS10_13_2000fs.npz,
+    geom/new_data/max300/metad_TS10_22_5000fs.npz, geom/new_data/max300/metad_TS10_40_10000fs.npz,
+    geom/new_data/max300/metad_TS09_9_2000fs.npz, geom/new_data/max300/metad_TS16_14_2000fs.npz,
+    geom/new_data/max300/metad_TS17_24_5000fs.npz, geom/new_data/max300/metad_TS17_1_2000fs.npz,
+    geom/new_data/max300/metad_TS13_11_2000fs.npz, geom/new_data/max300/metad_TS18_51_20000fs.npz,
+    geom/new_data/max300/metad_TS13_34_10000fs.npz, geom/new_data/max300/metad_TS10_5_2000fs.npz,
+    geom/new_data/max300/metad_TS13_32_5000fs.npz, geom/new_data/max300/metad_TS16_20_2000fs.npz,
+    geom/new_data/max300/metad_TS17_11_2000fs.npz, geom/new_data/max300/metad_TS13_30_5000fs.npz,
+    geom/new_data/max300/metad_TS16_12_2000fs.npz, geom/new_data/max300/metad_TS13_43_10000fs.npz,
+    geom/new_data/max300/metad_TS13_12_2000fs.npz, geom/new_data/max300/metad_TS09_28_5000fs.npz,
+    geom/new_data/max300/metad_TS10_24_5000fs.npz, geom/new_data/max300/metad_TS17_13_2000fs.npz,
+    geom/new_data/max300/metad_TS13_18_2000fs.npz, geom/new_data/max300/metad_TS10_15_2000fs.npz,
+    geom/new_data/max300/metad_TS10_9_2000fs.npz, geom/new_data/max300/metad_TS09_45_10000fs.npz,
+    geom/new_data/max300/metad_TS18_21_5000fs.npz]
+  added_split: [0.8, 0.1, 0.1]
+  balance_rxns: true
+  disagreement_thresh: [2, 99999]
+  metad_rxns: [1, 9, 10, 13, 16, 17, 18]
+checkpoint: {log: 1, model: 100, test: 1, val: 1, verbose: false, wandb: false}
+data:
+  cgem: false
+  cutoff: 5.0
+  dialation: true
+  dialation_reaction: ['01', '02', '03', '04', '05', '07', 08, 09, '10', '11', '13',
+    '14', '15', '16', '17', '18', '19']
+  dialation_trsize_perrxn: 200
+  normal_mode: true
+  random_state: 90
+  random_states: 90
+  reaction: [1, 2, 3, 4, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
+  root: /global/scratch/users/nancy_guan/ML/AIMD_H_combustion/H2Combustion/local/hydrogen_data
+  size_nmode_max: 4000
+  test_size: 1000
+  train_size: -1
+  trsize_perrxn_max: 1000
+  val_size: 1000
+general:
+  device: ['cuda:0', 'cuda:1', 'cuda:2', 'cuda:3']
+  driver: active_learning.py
+  me: model_al_1kperrxn_bwsl_1/config_h2_0.yml
+  output: [model_al_1kperrxn_bwsl_1/model_0, 1]
+  prefix: ''
+hooks: {vismolvector3d: false}
+model: {activation: swish, cutoff_network: poly, double_update_latent: true, layer_norm: true,
+  n_features: 128, n_interactions: 3, normalize_atomic: true, normalize_filter: false,
+  pre_trained: /global/scratch/users/nancy_guan/ML/AIMD_H_combustion/H2Combustion/local/active_learning/model_al_1kperrxn_bwsl_1/model_0/training_54/models/best_model_state.tar,
+  requires_dr: true, resolution: 20, return_latent: true, shared_interactions: false,
+  w_energy: 1.0, w_f_dir: 1.0, w_f_mag: 0.0, w_force: 20.0, wf_decay: 0.0}
+training:
+  boltzmann_weights: true
+  drop_last: true
+  dropout: 0.0
+  epochs: 2000
+  lr: 0.001
+  lr_scheduler: [plateau, 15, 20, 0.7, 1.0e-06]
+  shuffle: true
+  tr_batch_size: 100
+  tr_frz_rot: false
+  tr_keep_original: true
+  tr_rotations: 0
+  val_batch_size: 100
+  val_frz_rot: false
+  val_keep_original: true
+  val_rotations: 0
+  weight_decay: 0
