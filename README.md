@@ -39,4 +39,4 @@ and consult with the docstrings in the code.
 
 
 ## Demo
-See script/demo/md_demo.py for using trained model to run md simulation. The expected output is included in script/demo/demo_output/
+See script/demo/md_demo.py for using trained model to run md simulation. The expected output is included in script/demo/demo_output/, it takes ~10 seconds on a laptop to run this demo.
