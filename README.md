@@ -20,8 +20,12 @@ Please install (or load) conda and then proceed with the following commands:
     conda install -c conda-forge plumed py-plumed
     pip install rmsd
 
+This should take ~20 minute to install. Now, you can run combust and md modules anywhere on your computer as long as you are in the `torch-gpu` environment.
 
-Now, you can run combust and md modules anywhere on your computer as long as you are in the `torch-gpu` environment.
+## OS requirement
+This package is supported for macOS and Linux. The package has been tested on the following systems:
+macOS: Big Sur (11.4)
+Linux: x86_64 GNU/Linux
 
 
 ## Guidelines
@@ -34,5 +38,5 @@ and consult with the docstrings in the code.
 - Some paths are hardcoded into the code that is specific to developer. Make sure to go through and change them before using the code.
 
 
-
-
+## Demo
+See script/demo/md_demo.py for using trained model to run md simulation. The expected output is included in script/demo/demo_output/

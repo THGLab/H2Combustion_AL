@@ -304,7 +304,7 @@ def run_md_simulation(starting_structure,output_dir,temp = 300,time_fs=10, steps
         molecule.center()
         molecule.set_pbc(True)
     if calc_option=='ML':
-        model_path = '/global/scratch/users/nancy_guan/ML/AIMD_H_combustion/H2Combustion/local/hydrogen_ln'
+        model_path = '../models/old_single_model'
         model_type = 'NewtonNet'
         yml = glob.glob(f'{model_path}/run_scripts/*.yml')
         assert len(yml) ==1, f'{len(yml)} yaml files found in {model_path}/run_scripts'
@@ -312,10 +312,7 @@ def run_md_simulation(starting_structure,output_dir,temp = 300,time_fs=10, steps
         calc = MLAseCalculator(f'{model_path}/models/best_model_state.tar', yml,
                                     model_type = model_type, lattice = lattice)
     elif calc_option =="ML_QBC": # query by committee for active learning trained model
-        # #local
-        # result_dir = "/Users/nancy/Desktop/THG-research/Reactive-FF/AIMD_H_combustion/active_learning/models/model_al_1kperrxn_bwsl_1"
-        #lrc
-        result_dir ="/global/scratch/users/nancy_guan/ML/AIMD_H_combustion/H2Combustion/local/active_learning/model_al_1kperrxn_bwsl_1"
+        result_dir = "../models/model_al_1kperrxn_1"
         committee = CommitteeRegressor.from_dir(result_dir, force_cpu=True, iteration=-1, lattice = lattice)
         iteration = committee.get_latest_iteration()
         assert type(iteration) == int
