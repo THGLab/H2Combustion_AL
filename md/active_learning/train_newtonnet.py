@@ -17,6 +17,7 @@ from newtonnet.models import NewtonNet
 
 from newtonnet.train import Trainer
 from combust.data.parse_raw import *
+from combust.utils import standardize_batch
 from md.ase_interface import data_loader
 
 
@@ -92,8 +93,7 @@ class NewtonNetModel():
                           )
 
         print('Loading model: ',model_path)
-        model.load_state_dict(torch.load(model_path, map_location=self.device[0])['model_state_dict'], )
-        # model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu'))['model_state_dict'],)
+        model.load_state_dict(torch.load(model_path, map_location=self.device[0])['model_state_dict'], strict=False)
 
         self.model = model
         self.model.to(self.device[0])
@@ -309,7 +309,7 @@ class NewtonNetModel():
 
 
 
-def train_newtonnet(settings_path,force_cpu=False,resume = False,wandb=None):
+def train_newtonnet(settings_path,force_cpu=False,resume = False):
     # settings
     # settings_path = 'config_h2.yml'
     settings = yaml.safe_load(open(settings_path, "r"))
@@ -322,10 +322,6 @@ def train_newtonnet(settings_path,force_cpu=False,resume = False,wandb=None):
     else:
         device = [torch.device(settings['general']['device'])]
 
-    if 'wandb' in settings['checkpoint'] and settings['checkpoint']['wandb'] == True:
-        wandb.config = settings
-    else:
-        wandb = None
 
 
     # data
@@ -453,8 +449,7 @@ def train_newtonnet(settings_path,force_cpu=False,resume = False,wandb=None):
                       checkpoint_model=settings['checkpoint']['model'],
                       verbose=settings['checkpoint']['verbose'],
                       hooks=settings['hooks'],
-                      resume = resume,
-                      wandb = wandb)
+                      resume = resume,)
 
 
     trainer.print_layers()
@@ -995,5 +990,4 @@ def parse_train_test_npz(npz, settings, device):
 if __name__ =='__main__':
     model_idx = sys.argv[1].split('.')[-2][-1] # sys.argv[1] look like models_active_learning_1kperrxn_1/config_h2_0.yml
     label = sys.argv[1].split('/')[-2].replace('models_active_learning_','')
-    # wandb.init(project="active_learning", entity="nguan", group = label, name = f'model_{model_idx}')
-    train_newtonnet(sys.argv[1],resume=eval(sys.argv[2]),wandb=None)
+    train_newtonnet(sys.argv[1],resume=eval(sys.argv[2]))
