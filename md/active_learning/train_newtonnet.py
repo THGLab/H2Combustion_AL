@@ -12,13 +12,10 @@ import yaml
 import pandas as pd
 from itertools import chain
 
-from newtonnet.layers import get_activation_by_string
+from newtonnet.layers.activations import get_activation_by_string
 from newtonnet.models import NewtonNet
 
 from newtonnet.train import Trainer
-# from combust.data import parse_h2_reaction,extensive_train_loader
-from combust.data import ExtensiveEnvironment,PeriodicEnvironment
-from combust.data import batch_dataset_converter
 from combust.data.parse_raw import *
 from md.ase_interface import data_loader
 

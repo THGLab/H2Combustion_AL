@@ -1,6 +1,10 @@
 import numpy as np
+import pandas as pd
+import os
+import glob
 from ase import Atoms
 from ase.io.trajectory import TrajectoryWriter
+from ase.io import iread
 
 from combust.utils.utility import check_data_consistency, combine_rxn_arrays, write_data_npz
 from combust.utils.rxn_data import rxn_dict
@@ -54,6 +58,64 @@ def npz_clean_up(data):
         return data
     else:
         raise ValueError(f"npz has following unique Z valuess: {nums}")
+
+def parse_irc_data(dir_path):
+    """Load IRC data for the specified reaction.
+
+    Parameters
+    ----------
+    dir_path : str
+        Path to directory containing IRC data of a reaction.
+
+    Returns
+    -------
+
+    """
+    # Hartree to kcal/mol conversion factor
+    hartree_to_kcal_mol = 627.509
+
+    # pre-computed atomic energies (Hartree)
+    energy_h_atom = -0.5004966690
+    energy_o_atom = -75.0637742413
+
+    # load IRC cartesian coordinates (Angstrom) and atomic numbers
+    file_rpath = os.path.join(dir_path, os.path.basename(glob(f"{dir_path}/*rpath.TZ.xyz")[0]))
+    irc_mols = list(iread(file_rpath))
+    irc_carts = np.array([i.positions for i in irc_mols])
+    irc_nums = np.array([i.numbers for i in irc_mols])
+    assert irc_carts.shape[0] == irc_nums.shape[0]
+    assert irc_carts.shape[1] == irc_nums.shape[1]
+    assert irc_carts.shape[2] == 3
+    # get number of data points and number of atoms
+    n_data, n_atoms = irc_nums.shape
+    # get number of oxygen and hydrogen atoms
+    n_o_atom = np.count_nonzero(irc_nums[0] == 8)
+    n_h_atom = np.count_nonzero(irc_nums[0] == 1)
+
+    # load IRC energy (Hartree) and compute relative energy in kcal/mol
+    file_energy = os.path.join(dir_path, os.path.basename(glob(f"{dir_path}/*energy.TZ.csv")[0]))
+    irc_energy = pd.read_csv(file_energy, header=None)
+    irc_energy = irc_energy[0].values - n_h_atom * energy_h_atom - n_o_atom * energy_o_atom
+    irc_energy = irc_energy.reshape(-1, 1) * hartree_to_kcal_mol
+    assert irc_energy.ndim == 2
+    assert irc_energy.shape == (n_data, 1)
+
+    # load IRC gradient (Hartree / Angstrom) and convert to force in kcal/mol/A
+    data_dir = os.path.join(dir_path, os.path.basename(glob(f"{dir_path}/*gradient.TZ.csv")[0]))
+    irc_forces = -1 * pd.read_csv(data_dir, header=None).values
+    assert irc_forces.shape[0] == n_data
+    assert irc_forces.shape[1] == n_atoms * 3
+    irc_forces = irc_forces.reshape(n_data, n_atoms, 3) * hartree_to_kcal_mol
+
+    output = {
+        'Z': irc_nums,
+        'R': irc_carts,
+        'E': irc_energy,
+        'F': irc_forces,
+        'N': np.repeat(n_atoms, n_data).reshape(-1, 1),
+    }
+    return output
+
 
 def swap_data_based_on_nums(data,nums):
     # only swap nums[1] to num[0]

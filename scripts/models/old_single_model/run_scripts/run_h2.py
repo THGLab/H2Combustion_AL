@@ -2,7 +2,7 @@ import torch
 from torch.optim import Adam
 import yaml
 
-from newtonnet.layers import get_activation_by_string
+from newtonnet.layers.activations import get_activation_by_string
 from newtonnet.models import NewtonNet
 
 from newtonnet.train import Trainer

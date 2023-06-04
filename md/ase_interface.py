@@ -8,7 +8,7 @@ from ase.calculators.calculator import Calculator
 import torch
 import yaml
 
-from newtonnet.layers import get_activation_by_string
+from newtonnet.layers.activations import get_activation_by_string
 from newtonnet.models import NewtonNet
 
 from combust.data import ExtensiveEnvironment,PeriodicEnvironment

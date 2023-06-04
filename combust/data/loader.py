@@ -3,7 +3,7 @@ import torch
 from torch.utils.data import Dataset
 
 from combust.utils.utility import standardize_batch
-from combust.utils import rotate_molecule, parse_irc_data, euler_rotation_matrix
+from combust.utils import rotate_molecule, euler_rotation_matrix
 
 
 class BatchDataset(Dataset):
