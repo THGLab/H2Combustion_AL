@@ -27,6 +27,9 @@ task_file = "/global/scratch/users/nancy_guan/ML/AIMD_H_combustion/H2Combustion/
 ######################################
 
 def initial_training(result_dir,added=[]):
+    """
+    Initial training based on config file settings.
+    """
     if os.path.isdir(result_dir):
         raise ValueError(f'{result_dir} already exist, please use a new dir name to initialize')
     if len(added) == 0:
@@ -42,6 +45,9 @@ def initial_training(result_dir,added=[]):
 
 
 def metad_sampling(committee, result_dir, time_fs = 2000, cpu=True, stepsize = 0.1):
+    """
+    Run metadynamics samling calculation of active learning models.
+    """
     print("metad_sampling")
     print(f"Iteration: {committee.get_latest_iteration()} Progress (batch number): {committee.progress_monitor()}")
     while np.mean(committee.progress_monitor()) < 1600:
@@ -63,6 +69,9 @@ def metad_sampling(committee, result_dir, time_fs = 2000, cpu=True, stepsize = 0
 
 
 def qchem_and_parse_single(iteration, time_fs, prefix, rxn):
+    """
+    Run Q-Chem calculation on HPC for files in qchem_dir and save results as an npz file
+    """
     qchem_dir = f'geom/{prefix}metad_TS{rxn}_{iteration}_{time_fs}fs_qchem'
     npz_name = f'geom/new_data/max300/{prefix}metad_TS{rxn}_{iteration}_{time_fs}fs.npz'
     if os.path.isfile(npz_name):
@@ -76,7 +85,7 @@ def qchem_and_parse_single(iteration, time_fs, prefix, rxn):
         print(f"No geom found for {qchem_dir}, skipped")
         return ""
     cmd = f'python {task_file} qchem {qchem_dir} {npz_name} -r {rxn} '
-    # write_and_submit_to_slurm(cmd,f'qchem_{iteration}_{rxn}','geom/script')
+    write_and_submit_to_slurm(cmd,f'qchem_{iteration}_{rxn}','geom/script')
     os.system(cmd)
     while not os.path.isfile(npz_name):
         time.sleep(300)
@@ -143,6 +152,9 @@ def check_npz_complete(added_npz, restart = True):
     return True
 
 def retraining(result_dir, added_npz):
+    """
+    Retrain active learning models with added data sampled in AL cycles
+    """
     print("retraining")
     #waiting for npz to become available
     completed = check_npz_complete(added_npz,restart=False)
@@ -157,9 +169,17 @@ def retraining(result_dir, added_npz):
 
 
 def training_loop(result_dir, initialize = True,metad_time_fs = 2000, stepsize = 0.1):
-    # The idea is to run multiple loops without stopping
-    #  training (first 1000 epoch) -> metad (save once every ? structure becomes avail) -> qchem (start as avail) -> retrain
-    #                          \_> continue training
+    """
+    Master function to do active learning sampling and retraining
+    The idea is to run multiple loops without stopping
+     training (first 1600 epoch) -> metad (save once every ? structure becomes avail) -> qchem (start as avail) -> retrain
+                             \_> continue training
+    @param:
+    initialize: bool. True for starting a brand new AL model. False for continuing previous training
+    metad_time_fs: int. Length of sampling metadynamics runs
+    stepsize: float in fs. Step size of sampling metadynamics runs
+    """
+    
     if initialize:
         initial_training(result_dir)
 
@@ -257,20 +277,6 @@ def run_uncertain_traj_prl(uncertain_trajs):
 
 if __name__ =='__main__':
     result_dir = sys.argv[1]  # 'model_al_1kperrxn_bwsl_1'
-    training_loop(result_dir,initialize=False,metad_time_fs = int(sys.argv[2]),stepsize=0.5)
-    # committee = CommitteeRegressor.from_dir(result_dir, force_cpu=True, iteration=-1)
-    # committee.update_setting('al', 'metad_rxns',  ['01','09', 10,13,16,17,18])
-    # committee.update_setting('al', 'added', glob.glob("geom/new_data/combined/*.npz"))
-    # added_npz = glob.glob("geom/new_data/uncertain_traj/*.npz")
-    # committee.update_setting('training', 'epochs', 5000)
-    # committee.update_setting('training', 'lr_scheduler', ['plateau', 15, 50, 0.7, 1.0e-6])
-    # retraining(result_dir, added_npz)
+    training_loop(result_dir,initialize=True)
 
-
-    ### for adding uncertain traj to training ###
-    # uncertain_trajs = glob.glob("geom/uncertain_traj/*.traj")
-    # run_uncertain_traj_prl(uncertain_trajs)
-
-    # evaluate_aimd_nm(result_dir,"eval_ori.xlsx",irc=True)
-    # copy_latest_model(result_dir,"newest_model", replace=False)
 

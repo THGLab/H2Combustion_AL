@@ -50,7 +50,7 @@ def evaluate_npzs(res_dir,npzs,iteration=-1,cpu = False):
 
 
 def initial_training(result_dir,nlearners = 4,added=[]):
-    yaml_template = 'config_h2.yml'
+    yaml_template = 'config_h2_template.yml'
     committee = CommitteeRegressor.initialize_committee(yaml_template,nlearners,result_dir,added=added)
 
 def metad_production(result_dir, temp = 300, repeat=1,rxn='16',cpu=True, time_fs = 10000, stepsize = 0.1,
