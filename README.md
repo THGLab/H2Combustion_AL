@@ -2,14 +2,6 @@ Active Learning of Hydrogen Combustion Reaction.
 
 ## Installation and Dependencies
 
-
-The developer installation is available and for that you need to first clone H2Combustion from this repository:
-
-    git clone https://github.com/THGLab/H2Combustion_AL.git
-
-
-This repository is built on top of the NewtonNet repository: https://github.com/THGLab/NewtonNet
-
 We recommend using conda environment to install dependencies of this library.
 Please install (or load) conda and then proceed with the following commands:
 
@@ -19,6 +11,26 @@ Please install (or load) conda and then proceed with the following commands:
     conda install -c pytorch pytorch torchvision cudatoolkit=11.3
     conda install -c conda-forge plumed py-plumed
     pip install rmsd
+    
+This repository is built on top of the (NewtonNet repository)[https://github.com/THGLab/NewtonNet]. To install NewtonNet,
+run the following command:
+
+```git clone https://github.com/THGLab/NewtonNet.git
+cd NewtonNet
+pip install -e .
+```
+
+  
+The developer installation is available and for that you need to first clone H2Combustion from this repository:
+
+    git clone https://github.com/THGLab/H2Combustion_AL.git
+
+
+And adding these two directories into $PYTHONPATH:
+```
+export PYTHONPATH=$PYTHONPATH:/path/to/your/directory/NewtonNet
+export PYTHONPATH=$PYTHONPATH:/path/to/your/directory/H2Combustion_AL
+```
 
 This should take ~20 minute to install. Now, you can run combust and md modules anywhere on your computer as long as you are in the `torch-gpu` environment.
 
