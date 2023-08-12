@@ -52,3 +52,9 @@ and consult with the docstrings in the code.
 
 ## Demo
 See script/demo/md_demo.py for using trained model to run md simulation. The expected output is included in script/demo/demo_output/, it takes ~10 seconds on a laptop to run this demo.
+
+## Model Training
+To train a model, run this file after you've modified the settings in both the yaml file ```md/active_learning/config_h2_template.yml```
+and some paths and settings in the code. Currently the code is tailored towards specific use of traing on Lawrencium HPC.
+
+```python md/active_learning/active_learning.py model_name```
